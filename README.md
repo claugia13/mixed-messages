@@ -57,8 +57,8 @@ let tarotCardAffirmation = tarotAffirmations[randomIndex];
 Project is: _completed as of 12-19-20_
 
 ## Inspiration
-Mixed Messages Javascript project from Codecademy
-Tarot card meanings and affirmations quoted from https://www.thetarotlady.com/.
+* Mixed Messages Javascript project from Codecademy.  
+* Tarot card meanings and affirmations quoted from https://www.thetarotlady.com/.
 
 ## Contact
 Created by Claudia de Lima [@claugia13](https://github.com/claugia13) - feel free to contact me!
