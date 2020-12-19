@@ -26,14 +26,16 @@ Run locally using Node.js.
 
 ## Code Examples
 Sample code:
-`// generate a random number between within a certain interval min to max (min and max included)
+```javascript
+// generate a random number between within a certain interval min to max (min and max included)
 let randomNumFromInterval = (min, max) => {
     return Math.floor(Math.random()*(max-min + 1) + min);
 }
 const randomIndex = randomNumFromInterval(0, tarotDeck.length -1);
 let randomTarotCard = tarotDeck[randomIndex];
 let tarotCardMeaning = tarotMeanings[randomIndex];
-let tarotCardAffirmation = tarotAffirmations[randomIndex];`
+let tarotCardAffirmation = tarotAffirmations[randomIndex];
+```
 
 ## Project Objectives
 * Build a message generator program using JavaScript
