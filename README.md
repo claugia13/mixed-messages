@@ -16,19 +16,24 @@
 For this project, you will build a message generator program. Every time a user runs a program, they should get a new, randomized output. You’re welcome to take the project in a couple of different forms, like an astrology generator, inspirational message, or nonsensical jokes. To make your program truly random, the message that it outputs should be made up of at least three different pieces of data. Take what you know of JavaScript syntax so far to build the program and customize it to your liking.
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![Tarot cards from the Rider Waite Tarot deck. Photo by Viva Luna Studios](.viva-luna-studios-GLsAydqqgzs-unsplash.jpg) 
 
 ## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* Javascript - ES6
 
 ## Setup
-Describe how to install / setup your local environement / add link to demo version.
+Run locally using Node.js.
 
 ## Code Examples
-Show examples of usage:
-`put-your-code-here`
+Sample code:
+`// generate a random number between within a certain interval min to max (min and max included)
+let randomNumFromInterval = (min, max) => {
+    return Math.floor(Math.random()*(max-min + 1) + min);
+}
+const randomIndex = randomNumFromInterval(0, tarotDeck.length -1);
+let randomTarotCard = tarotDeck[randomIndex];
+let tarotCardMeaning = tarotMeanings[randomIndex];
+let tarotCardAffirmation = tarotAffirmations[randomIndex];`
 
 ## Project Objectives
 * Build a message generator program using JavaScript
@@ -47,10 +52,11 @@ Show examples of usage:
 
 
 ## Status
-Project is: _in progress_
+Project is: _completed as of 12-19-20_
 
 ## Inspiration
 Mixed Messages Javascript project from Codecademy
+Tarot card meanings and affirmations quoted from https://www.thetarotlady.com/.
 
 ## Contact
 Created by Claudia de Lima [@claugia13](https://github.com/claugia13) - feel free to contact me!
