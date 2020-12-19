@@ -118,21 +118,62 @@ const tarotPentaclesAffirmations = ['I am open to receive the very best the Univ
 // Concatenate together the separate major and minor arcana tarot affirmations arrays into one large array
 const tarotAffirmations = tarotMajorAffirmations.concat(tarotWandsAffirmations, tarotCupsAffirmations, tarotSwordsAffirmations, tarotPentaclesAffirmations);
 
-const majorArcanaDescription = ['The Major Arcana symbolizes the big picture, fate, or major lessons. These are the things and events that feel outside our control but help us to grow.'];
-const minorArcanaDescription = ['The Minor Arcana symbolizes our day to day activities, the things that we can control, and the people who may be influencing situations.'];
-const wandsDescription = ['Wands symbolize creativity, enterprise, work and passion. The element is Fire.'];
-const cupsDescription = ['Cups symbolize live, relationships, and our feelings. The element is Water.'];
-const swordsDescription = ['Swords symbolize conflicts, thoughts, and mental processes. The element is Air.'];
-const pentaclesDescription = ['Pentacles symbolize money, material goods, security, and our values. The element is Earth.']
+const majorArcanaDescription = 'The Major Arcana symbolizes the big picture, fate, or major lessons. These are the things and events that feel outside our control but help us to grow.';
+const minorArcanaDescription = 'The Minor Arcana symbolizes our day to day activities, the things that we can control, and the people who may be influencing situations.';
+const wandsDescription = 'Wands symbolize creativity, enterprise, work and passion. The element is Fire.';
+const cupsDescription = 'Cups symbolize live, relationships, and our feelings. The element is Water.';
+const swordsDescription = 'Swords symbolize conflicts, thoughts, and mental processes. The element is Air.';
+const pentaclesDescription = 'Pentacles symbolize money, material goods, security, and our values. The element is Earth.';
 
 // generate a random number between within a certain interval min to max (min and max included)
 let randomNumFromInterval = (min, max) => {
     return Math.floor(Math.random()*(max-min + 1) + min);
 }
-let randomTarotCard = tarotDeck[randomNumFromInterval(0, tarotDeck.length -1)];
-console.log('randomNumFromInterval: ' + randomNumFromInterval(0, tarotDeck.length - 1));
+const randomIndex = randomNumFromInterval(0, tarotDeck.length -1);
+let randomTarotCard = tarotDeck[randomIndex];
+let tarotCardMeaning = tarotMeanings[randomIndex];
+let tarotCardAffirmation = tarotAffirmations[randomIndex];
 
-console.log('tarotDeck.length: ' + tarotDeck.length);
-console.log('randomTarotCard: ' + randomTarotCard);
+//console.log('randomIndex: ' + randomIndex);
+//console.log('tarotDeck.length: ' + tarotDeck.length);
 
+// log random 'mixed messages' to the console:
+
+// log tarot card of the day
+console.log('Your tarot card of the day is: ' + randomTarotCard + '\n');
+
+// log correlating tarot card messages to console
+if (tarotMajorArcana.includes(randomTarotCard) === true){
+    console.log(' ' + randomTarotCard + ' is a Major Arcana card.\n' + majorArcanaDescription + '\n');
+    console.log(' ' + randomTarotCard + ' Message: ' + tarotMajorMeanings[randomIndex] + '\n');
+    console.log(' ' + randomTarotCard + ' Affirmation: ' + tarotMajorAffirmations[randomIndex] + '\n');
+
+} else if (tarotMinorWands.includes(randomTarotCard) === true){
+    const convertRandomIndex = randomIndex - tarotMajorArcana.length;
+    console.log(wandsDescription + ' ' + randomTarotCard + ' is a Minor Arcana card.\n' + minorArcanaDescription + '\n');
+    console.log(randomTarotCard + ' Message: ' + tarotWandsMeanings[convertRandomIndex] + '\n');
+    console.log(randomTarotCard + ' Affirmation: ' + tarotWandsAffirmations[convertRandomIndex] + '\n');
+
+} else if (tarotMinorCups.includes(randomTarotCard) === true){
+    const convertRandomIndex = randomIndex - tarotMajorArcana.length - tarotMinorWands.length;
+    console.log(cupsDescription + ' ' + randomTarotCard + ' is a Minor Arcana card.' + minorArcanaDescription + '\n');
+    console.log(randomTarotCard + ' Message: ' + tarotCupsMeanings[convertRandomIndex]);
+    console.log(randomTarotCard + ' Affirmation: ' + tarotCupsAffirmations[convertRandomIndex]);
+
+} else if (tarotMinorSwords.includes(randomTarotCard) === true){
+    const convertRandomIndex = randomIndex - tarotMajorArcana.length - tarotMinorWands.length - tarotMinorCups.length;
+    console.log(swordsDescription + ' ' + randomTarotCard + ' is a Minor Arcana card.' + minorArcanaDescription + '\n');
+    console.log(randomTarotCard + ' Message: ' + tarotSwordsMeanings[convertRandomIndex]);
+    console.log(randomTarotCard + ' Affirmation: ' + tarotSwordsAffirmations[convertRandomIndex]);
+
+} else if (tarotMinorPentacles.includes(randomTarotCard) === true){
+    const convertRandomIndex = randomIndex - tarotMajorArcana.length - tarotMinorWands.length - tarotMinorCups.length - tarotMinorSwords.length;
+    console.log(pentaclesDescription + ' ' + randomTarotCard + ' is a Minor Arcana card. ');
+    console.log(minorArcanaDescription);
+    console.log(randomTarotCard + ' Meaning: ' + tarotPentaclesMeanings[convertRandomIndex]);
+    console.log(randomTarotCard + ' Affirmation: ' + tarotPentaclesAffirmations[convertRandomIndex]);
+
+} else {
+    console.log('An error occurred.');
+}
 
